@@ -1,7 +1,10 @@
+/* Import Space Grotesk font */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 /* General styles */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 /* Hero section styles */
@@ -36,9 +39,11 @@ body {
 h1 {
     font-size: 2em;
     color: #333;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 p {
     font-size: 1em;
     color: #666;
+    font-family: 'Space Grotesk', sans-serif;
 }

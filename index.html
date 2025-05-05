@@ -11,12 +11,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&display=swap" rel="stylesheet">
         <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         
         <!-- Base styles -->
-        <link rel="stylesheet" href="css/hero.css" media="all">
+        <link rel="stylesheet" href="css/desktop.css" media="all">
         <link rel="stylesheet" href="css/app.css" media="all">
         <link rel="stylesheet" href="css/journey.css" media="all">
-        
+            
         <!-- Mobile responsive styles (should be last to override other styles) -->
         <link rel="stylesheet" href="css/mobile-responsive.css" media="all">
     </head>
@@ -29,9 +30,11 @@
                 <span class="hamburger-line"></span>
             </button>
             <nav class="menu">
-                <a href="#" class="menu-item">Homepage</a>
-                <a href="about.html" class="menu-item">About Us</a>
+                <a href="index.html" class="menu-item">Home</a>
+                <a href="about.html" class="menu-item">About</a>
                 <a href="product.html" class="menu-item">Product</a>
+                <a href="contact.html" class="menu-item">Contact</a>
+                <a href="blog.html" class="menu-item">Blog</a>
             </nav>
         </header>
 
@@ -46,7 +49,7 @@
                             people
                         </span>
                         travel</span>
-                    <span>in cities around the World</span>
+                    <span>in Cities around the World.</span>
                 </h1>
                 <div class="video-container">
                     <video controls autoplay muted loop playsinline class="background-video">
@@ -57,15 +60,15 @@
                 <div class="stats-cards">
                     <div class="stat-card">
                         <div class="stat-number">5.2M</div>
-                        <p class="stat-text">By 2030, Nairobi's population will hit 5.2 million, and the metro region will reach 13 million. This explosive growth means millions more daily trips-public transit must scale up fast to keep the city moving.</p>
+                        <p class="stat-text">Nairobi's population will reach 5.2 million by 2030, requiring rapid transit expansion to meet growing demand.</p>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">4M</div>
-                        <p class="stat-text">Public transport (matatus and buses) already carries around 4 million passengers daily in Nairobi, making up 70% of all motorized trips. Transit is the city's lifeline-modernizing it impacts the vast majority of urban residents.</p>
+                        <p class="stat-text">Public transport carries 4 million daily passengers in Nairobi, serving 70% of all motorized trips.</p>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">17</div>
-                        <p class="stat-text">By 2050, Africa will have 17 megacities-each with over 10 million people-including Lagos, Cairo, Kinshasa, and Johannesburg, making it the continent with the second highest number of megacities in the world after Asia.</p>
+                        <p class="stat-text">Africa will have 17 megacities by 2050, each with over 10 million residents, driving urban mobility needs.</p>
                     </div>
                 </div>
             </div>
@@ -180,14 +183,14 @@
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Company</h4>
-                        <a href="#">About Us</a>
+                        <a href="about.html">About Us</a>
                         <a href="#">Careers</a>
                         <a href="#">Press</a>
-                        <a href="#">Blog</a>
+                        <a href="blog.html">Blog</a>
                     </div>
                     <div class="footer-column">
                         <h4>Product</h4>
-                        <a href="#">Features</a>
+                        <a href="product.html">Features</a>
                         <a href="#">Pricing</a>
                         <a href="#">Enterprise</a>
                         <a href="#">Support</a>
@@ -214,99 +217,147 @@
         </footer>
 
         <script>
-            // Hamburger menu functionality
-            const hamburgerMenu = document.querySelector('.hamburger-menu');
-            const menu = document.querySelector('.menu');
-            const body = document.body;
-
-            hamburgerMenu.addEventListener('click', () => {
-                hamburgerMenu.classList.toggle('active');
-                menu.classList.toggle('active');
-                body.classList.toggle('menu-open');
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (menu.classList.contains('active') && 
-                    !menu.contains(e.target) && 
-                    !hamburgerMenu.contains(e.target)) {
-                    hamburgerMenu.classList.remove('active');
-                    menu.classList.remove('active');
-                    body.classList.remove('menu-open');
-                }
-            });
-
-            // Video controls
-            const video = document.querySelector('.background-video');
-            const playPauseBtn = document.querySelector('.play-pause-btn');
-            
-            playPauseBtn.addEventListener('click', () => {
-                if (video.paused) {
-                    playPauseBtn.textContent = '⏸';
-                    video.play();
-                } else {
-                    playPauseBtn.textContent = '▶';
-                    video.pause();
-                }
-            });
-
-            // Scroll to top functionality
-            const scrollToTopBtn = document.getElementById('scrollToTop');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    scrollToTopBtn.classList.add('visible');
-                } else {
-                    scrollToTopBtn.classList.remove('visible');
-                }
-            });
-            
-            scrollToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
-            // Add scroll indicator for horizontally scrollable elements
-            const scrollableContainers = document.querySelectorAll('.stats-cards, .features-grid');
-            
-            scrollableContainers.forEach(container => {
-                // Only add indicators on mobile
-                if (window.innerWidth <= 768) {
-                    // Check if container has overflow
-                    if (container.scrollWidth > container.clientWidth) {
-                        // Scroll indicators already added in CSS
+            document.addEventListener('DOMContentLoaded', function() {
+                // Handle scroll indicator for stat cards
+                const statsCards = document.querySelector('.stats-cards');
+                
+                if (statsCards) {
+                    // Add scroll event listener
+                    statsCards.addEventListener('scroll', function() {
+                        if (statsCards.scrollLeft > 20) {
+                            statsCards.classList.add('scrolled');
+                        } else {
+                            statsCards.classList.remove('scrolled');
+                        }
+                    });
+                    
+                    // Add touch events for better mobile interaction
+                    let touchStartX = 0;
+                    let touchEndX = 0;
+                    
+                    statsCards.addEventListener('touchstart', function(e) {
+                        touchStartX = e.changedTouches[0].screenX;
+                    }, false);
+                    
+                    statsCards.addEventListener('touchend', function(e) {
+                        touchEndX = e.changedTouches[0].screenX;
+                        handleSwipe();
+                    }, false);
+                    
+                    function handleSwipe() {
+                        const swipeThreshold = 50;
+                        const diff = touchStartX - touchEndX;
                         
-                        // Add touch indication (subtle bounce animation)
-                        container.classList.add('scrollable');
-                        
-                        // Hide indicator once user has scrolled
-                        container.addEventListener('scroll', () => {
-                            if (container.scrollLeft > 20) {
-                                // Check if we need to hide the indicator
-                                const indicator = container.querySelector('.scroll-indicator');
-                                if (indicator) {
-                                    indicator.style.opacity = '0';
-                                    setTimeout(() => {
-                                        indicator.remove();
-                                    }, 300);
-                                }
+                        if (Math.abs(diff) > swipeThreshold) {
+                            if (diff > 0) {
+                                // Swipe left
+                                statsCards.scrollBy({
+                                    left: 300,
+                                    behavior: 'smooth'
+                                });
+                            } else {
+                                // Swipe right
+                                statsCards.scrollBy({
+                                    left: -300,
+                                    behavior: 'smooth'
+                                });
                             }
-                        });
+                        }
                     }
                 }
-            });
+                
+                // Menu functionality
+                const menuIcon = document.querySelector('.hamburger-menu');
+                const menu = document.querySelector('.menu');
+                const body = document.body;
 
-            // Fix for iOS momentum scrolling issues
-            document.addEventListener('touchmove', (e) => {
-                // Allow default behavior for scrollable elements
-                const target = e.target;
-                const scrollable = target.closest('.stats-cards, .features-grid');
-                if (scrollable && scrollable.scrollWidth > scrollable.clientWidth) {
-                    e.stopPropagation();
-                }
-            }, { passive: true });
+                menuIcon.addEventListener('click', () => {
+                    menu.classList.toggle('active');
+                    body.classList.toggle('menu-open');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (menu.classList.contains('active') && 
+                        !menu.contains(e.target) && 
+                        !menuIcon.contains(e.target)) {
+                        menu.classList.remove('active');
+                        body.classList.remove('menu-open');
+                    }
+                });
+
+                // Video controls
+                const video = document.querySelector('.background-video');
+                const playPauseBtn = document.querySelector('.play-pause-btn');
+                
+                playPauseBtn.addEventListener('click', () => {
+                    if (video.paused) {
+                        playPauseBtn.textContent = '⏸';
+                        video.play();
+                    } else {
+                        playPauseBtn.textContent = '▶';
+                        video.pause();
+                    }
+                });
+
+                // Scroll to top functionality
+                const scrollToTopBtn = document.getElementById('scrollToTop');
+                
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        scrollToTopBtn.classList.add('visible');
+                    } else {
+                        scrollToTopBtn.classList.remove('visible');
+                    }
+                });
+                
+                scrollToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+
+                // Add scroll indicator for horizontally scrollable elements
+                const scrollableContainers = document.querySelectorAll('.stats-cards, .features-grid');
+                
+                scrollableContainers.forEach(container => {
+                    // Only add indicators on mobile
+                    if (window.innerWidth <= 768) {
+                        // Check if container has overflow
+                        if (container.scrollWidth > container.clientWidth) {
+                            // Scroll indicators already added in CSS
+                            
+                            // Add touch indication (subtle bounce animation)
+                            container.classList.add('scrollable');
+                            
+                            // Hide indicator once user has scrolled
+                            container.addEventListener('scroll', () => {
+                                if (container.scrollLeft > 20) {
+                                    // Check if we need to hide the indicator
+                                    const indicator = container.querySelector('.scroll-indicator');
+                                    if (indicator) {
+                                        indicator.style.opacity = '0';
+                                        setTimeout(() => {
+                                            indicator.remove();
+                                        }, 300);
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+
+                // Fix for iOS momentum scrolling issues
+                document.addEventListener('touchmove', (e) => {
+                    // Allow default behavior for scrollable elements
+                    const target = e.target;
+                    const scrollable = target.closest('.stats-cards, .features-grid');
+                    if (scrollable && scrollable.scrollWidth > scrollable.clientWidth) {
+                        e.stopPropagation();
+                    }
+                }, { passive: true });
+            });
         </script>
     </body>
     </html>
