@@ -148,10 +148,21 @@
 .features-grid {
     max-width: 1400px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    overflow: hidden;
     gap: 40px;
     padding: 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.features-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.features-grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .feature-card {

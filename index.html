@@ -163,7 +163,7 @@
                 <img src="assets/music.jpg" alt="Entertainment" class="ux-img">
             </div>
             <div class="ux-feature">
-                <img src="assets/cityscape.jpg" alt="City View" class="ux-img">
+                <img src="cities.jpg" alt="City View" class="ux-img">
                 <div class="ux-text">
                     <h3>Watch the City Pass By</h3>
                     <p>Take in the urban landscape from your comfort zone. Experience your city from a new perspective.</p>
@@ -317,15 +317,15 @@
                     });
                 });
 
-                // Add scroll indicator for horizontally scrollable elements
+                
                 const scrollableContainers = document.querySelectorAll('.stats-cards, .features-grid');
                 
                 scrollableContainers.forEach(container => {
-                    // Only add indicators on mobile
+                 
                     if (window.innerWidth <= 768) {
-                        // Check if container has overflow
+                      
                         if (container.scrollWidth > container.clientWidth) {
-                            // Scroll indicators already added in CSS
+                           
                             
                             // Add touch indication (subtle bounce animation)
                             container.classList.add('scrollable');

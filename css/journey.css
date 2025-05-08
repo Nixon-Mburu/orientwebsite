@@ -158,7 +158,7 @@
 
 .ux-img {
     width: 100%;
-    height: 500px;
+    height: 700px;
     object-fit: cover;
     border-radius: 20px;
     order: 3;
@@ -306,5 +306,13 @@
 
     .time-location h3 {
         font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .ux-img {
+        width: 100%;
+        height: 800px;
+        object-fit: contain;
     }
 }
