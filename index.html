@@ -33,8 +33,7 @@
                 <a href="index.html" class="menu-item">Home</a>
                 <a href="about.html" class="menu-item">About</a>
                 <a href="product.html" class="menu-item">Product</a>
-                <a href="contact.html" class="menu-item">Contact</a>
-                <a href="blog.html" class="menu-item">Blog</a>
+                
             </nav>
         </header>
 
@@ -94,7 +93,7 @@
                     </div>
                 </div>
                 <div class="app-image">
-                    <img src="assets/app-preview.png" alt="Orient App Preview">
+                    <img src="cell.png" alt="Orient App Preview">
                 </div>
             </div>
         </section>
@@ -267,20 +266,20 @@
                 }
                 
                 // Menu functionality
-                const menuIcon = document.querySelector('.hamburger-menu');
+                const hamburgerMenu = document.querySelector('.hamburger-menu');
                 const menu = document.querySelector('.menu');
                 const body = document.body;
 
-                menuIcon.addEventListener('click', () => {
+                hamburgerMenu.addEventListener('click', function() {
+                    hamburgerMenu.classList.toggle('active');
                     menu.classList.toggle('active');
-                    body.classList.toggle('menu-open');
                 });
 
                 // Close menu when clicking outside
                 document.addEventListener('click', (e) => {
                     if (menu.classList.contains('active') && 
                         !menu.contains(e.target) && 
-                        !menuIcon.contains(e.target)) {
+                        !hamburgerMenu.contains(e.target)) {
                         menu.classList.remove('active');
                         body.classList.remove('menu-open');
                     }

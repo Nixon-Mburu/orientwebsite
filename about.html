@@ -19,9 +19,30 @@
             <a href="index.html" class="menu-item">Home</a>
             <a href="about.html" class="menu-item">About</a>
             <a href="product.html" class="menu-item">Product</a>
-            
         </nav>
     </header>
+
+    <style>
+        /* Hide hamburger menu on larger screens */
+        @media (min-width: 769px) {
+            .hamburger-menu {
+                display: none; /* Hide the hamburger menu */
+            }
+            .menu {
+                display: flex; /* Show the menu normally */
+            }
+        }
+
+        /* Show hamburger menu on mobile */
+        @media (max-width: 768px) {
+            .menu {
+                display: none; /* Hide the menu by default */
+            }
+            .hamburger-menu {
+                display: block; /* Show the hamburger menu */
+            }
+        }
+    </style>
 
     <!-- Hero Section -->
     <section class="about-hero">
@@ -207,7 +228,22 @@
                     }
                 });
             }
-            
+
+            // Hamburger menu functionality
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const menu = document.querySelector('.menu');
+
+            if (hamburgerMenu && menu) {
+                hamburgerMenu.addEventListener('click', function() {
+                    // Toggle the menu display
+                    if (menu.style.display === 'block') {
+                        menu.style.display = 'none';
+                    } else {
+                        menu.style.display = 'block';
+                    }
+                });
+            }
+
             // Mobile scroll indicators
             const scrollableContainers = document.querySelectorAll('.values-grid, .impact-stats, .team-grid');
             
