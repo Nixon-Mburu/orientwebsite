@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Product | Orient</title>
-    <link rel="stylesheet" href="hero.css">
-    <link rel="stylesheet" href="app.css">
-    <link rel="stylesheet" href="product.css">
+    
+
+    <link rel="stylesheet" href="css/product.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,27 +14,34 @@
 <body>
     <header class="header">
         <div class="logo">Orient</div>
-        <button class="hamburger-menu" aria-label="Menu">
-            <img src="menu.png" alt="Menu" style="width:32px;height:32px;background:none;border:none;" />
-        </button>
+        <a href="javascript:void(0);" class="menu-icon" onclick="toggleSidebar()">
+            <img src="assets/menu.png" alt="Menu Icon" />
+        </a>
         <nav class="menu">
             <a href="index.html" class="menu-item">Home</a>
             <a href="about.html" class="menu-item">About</a>
             <a href="product.html" class="menu-item">Product</a>
-         
         </nav>
     </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <a href="index.html" class="sidebar-item">Home</a>
+        <a href="about.html" class="sidebar-item">About</a>
+        <a href="product.html" class="sidebar-item">Product</a>
+        <a href="javascript:void(0);" class="closebtn" onclick="toggleSidebar()">×</a>
+    </div>
 
     <section class="product-hero">
         <div class="product-hero-content">
             <h1>
                 <span class="stylized">Reimagining</span>
                 <span class="regular-text">Urban <span class="highlight-underline">Transit</span> in</span>
-                <span class="italic">Nairobi</span>
+               Cities
             </h1>
             <div class="subtitle">
                 <span class="regular-text">Smarter journeys for</span>
-                <span class="italic">everyone</span>
+                everyone
             </div>
         </div>
         <div class="product-stats">
@@ -119,7 +126,7 @@
                 </div>
             </div>
             <div class="section-image">
-                <img src="passenger.jpeg" alt="Passenger using the transit app and boarding a vehicle">
+                <img src="assets/passenger.jpeg" alt="Passenger using the transit app and boarding a vehicle">
             </div>
         </div>
     </section>
@@ -177,7 +184,7 @@
                 </div>
             </div>
             <div class="section-image">
-                <img src="buses.jpg" alt="Buses that move the City">
+                <img src="assets/buses.jpg" alt="Buses that move the City">
             </div>
         </div>
     </section>
@@ -250,7 +257,7 @@
                 </div>
             </div>
             <div class="section-image">
-                <img src="cities.jpg" alt="Cityscape showing improved urban transportation">
+                <img src="assets/cities.jpg" alt="Cityscape showing improved urban transportation">
             </div>
         </div>
     </section>
@@ -317,6 +324,11 @@
                 });
             });
         });
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
